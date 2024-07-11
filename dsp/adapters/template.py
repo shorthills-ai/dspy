@@ -88,7 +88,8 @@ class Template(BaseTemplate):
         """
         example = dsp.Example(example)
 
-        raw_pred = raw_pred.strip()
+        _, value = raw_pred
+        raw_pred = value.strip() if isinstance(value, str) else str()
 
         idx = 0
         while idx < len(self.fields):
